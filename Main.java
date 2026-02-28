@@ -1,11 +1,13 @@
 import java.time.LocalDate;
 import java.util.Scanner;
 
-public class Main {
+public class Main 
+{
     public static void main(String[] args) 
     {
         Scanner input = new Scanner(System.in);
         GymManager myGym = new GymManager();
+        myGym.initializeDatabase();
 
         boolean running = true;
         while (running) 
@@ -150,4 +152,5 @@ public class Main {
         }
         input.close();
     }
+    
 }
