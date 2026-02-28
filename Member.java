@@ -46,20 +46,35 @@ public class Member extends Person
 
     public void displayInfo ()
     {
-        System.out.println(" ID : " + getID());
-        System.out.println(" Name : " + getName());
-        System.out.println(" Email : " + getEmail());
-        System.out.println(" Enrollment Data : " + this.enrollmentDate);
-        System.out.println(" Membership Plan : " + this.plan);
+        // Colors used from Main class context
+        String CYAN = "\u001B[36m";
+        String RESET = "\u001B[0m";
+        String GREEN = "\u001B[32m";
+        String YELLOW = "\u001B[33m";
+        String BOLD = "\u001B[1m";
+
+        System.out.println(CYAN + BOLD + "------- [ MEMBER PROFILE ] -------" + RESET);
+        System.out.println(BOLD + " ID      : " + RESET + getID());
+        System.out.println(BOLD + " Name    : " + RESET + GREEN + getName() + RESET);
+        System.out.println(BOLD + " Email   : " + RESET + getEmail());
+        System.out.println(BOLD + " Joined  : " + RESET + this.enrollmentDate);
+        System.out.println(BOLD + " Plan    : " + RESET + YELLOW + this.plan + RESET);
 
         if ( this.assignedTrainer != null )
         {
-            System.out.println(" Assigned Trainer : " + this.assignedTrainer.getName());
+            System.out.println(BOLD + " Trainer : " + RESET + GREEN + this.assignedTrainer.getName() + RESET);
         }
         else
         {
-            System.out.println(" Assigned Trainer : None ");
-        }   
+            System.out.println(BOLD + " Trainer : " + RESET + "None");
+        } 
+        
+        // Calculate days to show status color
+        long days = getRemainingDays();
+        String statusColor = (days <= 0) ? "\u001B[31m" : GREEN; // Red if expired, else Green
+        
+        System.out.println(BOLD + " Status  : " + RESET + statusColor + days + " days remaining" + RESET);
+        System.out.println(CYAN + "----------------------------------" + RESET);
     }
 
     public long getRemainingDays() 
