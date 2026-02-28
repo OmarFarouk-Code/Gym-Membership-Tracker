@@ -89,6 +89,7 @@ public class GymManager implements GymOperationsInterface
                 System.out.println ("Member " + (count++));
                 System.out.println ("Name " + member.getName() );
                 System.out.println ("Previous Plan " + member.getPlan() );
+                System.out.println ("-----------------------------------");
             }
         }
     }
