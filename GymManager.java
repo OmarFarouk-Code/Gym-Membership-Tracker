@@ -22,7 +22,7 @@ public class GymManager implements GymOperationsInterface
         this.allMembers.add( member );
     }
 
-    public void remove ( int id )
+    public void removeMember ( int id )
     {
         Member found = searchMember(id);
         if (found != null) 
