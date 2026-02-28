@@ -1,5 +1,11 @@
 public class Person 
 {
+    // ANSI Color Constants for consistent UI
+    private final String RESET = "\u001B[0m";
+    private final String CYAN = "\u001B[36m";
+    private final String GREEN = "\u001B[32m";
+    private final String BOLD = "\u001B[1m";
+
     private int id;
     private String name;
     private String email;
@@ -43,8 +49,10 @@ public class Person
 
     public void displayInfo ()
     {
-        System.out.println(" ID : " + this.id);
-        System.out.println(" Name : " + this.name);
-        System.out.println(" Email : " + this.email);
+        // Using formatted labels with colors
+        System.out.println(CYAN + BOLD + "------- [ BASIC INFO ] -------" + RESET);
+        System.out.printf("%-10s : %d%n", BOLD + "ID" + RESET, this.id);
+        System.out.printf("%-10s : %s%n", BOLD + "Name" + RESET, GREEN + this.name + RESET);
+        System.out.printf("%-10s : %s%n", BOLD + "Email" + RESET, this.email);
     }
 }
