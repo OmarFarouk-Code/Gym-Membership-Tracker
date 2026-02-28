@@ -59,7 +59,7 @@ public class Member extends Person
         else
         {
             System.out.println(" Assigned Trainer : None ");
-        }
+        }   
     }
 
     public long getRemainingDays() 
